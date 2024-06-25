@@ -5,6 +5,8 @@
 
 ## 📚 자바스크립트 학습
 
-***[WEEK1]***
+***[ WEEK1 ]***
   
   1-1. [변수와 자료형 문제](https://gist.github.com/SSUK-H/2202ada1ac280d15334ad7f85cd9a6d7)
+  
+  1-2. [배열](https://gist.github.com/SSUK-H/87b78345af7c8b42d7cfd11d1ac3b2c2)
