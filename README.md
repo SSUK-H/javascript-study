@@ -7,6 +7,8 @@
 
 ***[ WEEK1 ]***
   
-  1-1. [변수와 자료형 문제](https://gist.github.com/SSUK-H/2202ada1ac280d15334ad7f85cd9a6d7)
+  1-1. [변수, 자료형과 연산자 (feat. 호이스팅)](https://gist.github.com/SSUK-H/2202ada1ac280d15334ad7f85cd9a6d7)
   
   1-2. [배열](https://gist.github.com/SSUK-H/87b78345af7c8b42d7cfd11d1ac3b2c2)
+
+  1-3. [객체와 if문](https://gist.github.com/SSUK-H/ba5762fc1efac8eda069fe99666bbd81)
