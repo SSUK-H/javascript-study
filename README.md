@@ -11,4 +11,6 @@
   
   1-2. [배열](https://gist.github.com/SSUK-H/87b78345af7c8b42d7cfd11d1ac3b2c2)
 
-  1-3. [객체와 if문](https://gist.github.com/SSUK-H/ba5762fc1efac8eda069fe99666bbd81)
+  1-3. [객체와 조건문](https://gist.github.com/SSUK-H/ba5762fc1efac8eda069fe99666bbd81)
+
+  1-4. [반복문](https://gist.github.com/SSUK-H/6c731494bbaa90bbc2872a88fd3254b7)
