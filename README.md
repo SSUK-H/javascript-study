@@ -14,3 +14,5 @@
   1-3. [객체와 조건문](https://gist.github.com/SSUK-H/ba5762fc1efac8eda069fe99666bbd81)
 
   1-4. [반복문](https://gist.github.com/SSUK-H/6c731494bbaa90bbc2872a88fd3254b7)
+
+  1-5. [함수](https://gist.github.com/SSUK-H/066aa94b1644ab87ccb8c14641153223)
