@@ -45,7 +45,7 @@ function play() {
   // 유효성 검사
   // 1~100 사이 숫자가 아닌 경우
   if (isNaN(userValue) || userValue < 1 || userValue > 100) {
-    resultArea.textContent = "1과 100사이 숫자를 입력해주세요.";
+    resultArea.textContent = "1과 100사이의 유효한 숫자를 입력해주세요.";
     return;
   }
 
@@ -57,7 +57,7 @@ function play() {
 
   chances--; // 기회가 1씩 줄어듬
   chancesArea.textContent = `남은 입력 횟수: ${chances}회`;
-  console.log("남은 기회: ", chances);
+  console.log("남은 입력 횟수: ", chances);
 
   // 입력한 값 저장
   history.push(userValue);
