@@ -62,10 +62,10 @@ function play() {
   // 입력 값에 따라 결과 출력
   if (userValue < computerNum) {
     console.log("Up!!");
-    resultArea.textContent = "Up!!";
+    resultArea.textContent = "힌트: Up!!";
   } else if (userValue > computerNum) {
     console.log("Down!!");
-    resultArea.textContent = "Down!!";
+    resultArea.textContent = "힌트: Down!!";
   } else {
     console.log("맞췄습니다!");
     resultArea.textContent = "맞췄습니다!";
