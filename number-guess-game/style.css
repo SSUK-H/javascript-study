@@ -15,6 +15,7 @@ body {
   height: 100vh;
   font-family: "DungGeunMo", sans-serif;
   font-size: 16px;
+  line-height: 18px;
 }
 
 .warp {
@@ -54,7 +55,7 @@ hr {
 }
 
 main {
-  width: 700px;
+  width: 730px;
   height: fit-content;
   border: 3px outset white;
   margin-top: -10%;

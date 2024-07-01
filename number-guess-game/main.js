@@ -15,9 +15,9 @@ const userInput = document.getElementById("user-input"); // 입력창
 const resultArea = document.getElementById("result-area"); // 정답
 const resetButton = document.getElementById("reset-button"); // 다시하기 버튼
 const chancesArea = document.getElementById("chances-area"); // 기회
-let chances = 5; // 기회 총 3번
+let chances = 3; // 기회 총 3번
 let gameOver = false; // 게임 종료 여부
-const history = [];
+let history = [];
 
 // 정답 버튼 클릭 시 게임 진행
 playButton.addEventListener("click", play);
@@ -39,7 +39,7 @@ function pickRandomNum() {
 
 // 게임 진행
 function play() {
-  const userValue = userInput.value; // 입력값
+  const userValue = parseInt(userInput.value); // 입력값을 정수로 변환
   console.log("입력한 값: ", userValue);
 
   // 유효성 검사
@@ -56,25 +56,33 @@ function play() {
   }
 
   chances--; // 기회가 1씩 줄어듬
-  chancesArea.textContent = `남은 기회: ${chances}번`;
+  chancesArea.textContent = `남은 입력 횟수: ${chances}회`;
   console.log("남은 기회: ", chances);
+
+  // 입력한 값 저장
+  history.push(userValue);
+  console.log("history", history);
 
   // 입력 값에 따라 결과 출력
   if (userValue < computerNum) {
     console.log("Up!!");
-    resultArea.textContent = "힌트: Up!!";
+    resultArea.textContent = `힌트: Up!! (정답: ${computerNum})`;
+    userInput.placeholder =
+      "숫자 " +
+      history.join(", ") +
+      "을(를) 제외한 1과 100사이의 유효한 숫자를 입력해주세요.";
   } else if (userValue > computerNum) {
     console.log("Down!!");
-    resultArea.textContent = "힌트: Down!!";
+    resultArea.textContent = `힌트: Down!! (정답: ${computerNum})`;
+    userInput.placeholder =
+      "숫자 " +
+      history.join(", ") +
+      "을(를) 제외한 1과 100사이의 유효한 숫자를 입력해주세요.";
   } else {
     console.log("맞췄습니다!");
     resultArea.textContent = "맞췄습니다!";
     gameOver = true; // 게임 종료
   }
-
-  // 입력한 값 저장
-  history.push(userValue);
-  console.log("history", history);
 
   // 기회가 끝났을 때 게임 종료
   if (chances < 1) {
@@ -83,14 +91,20 @@ function play() {
 
   if (gameOver == true) {
     playButton.disabled = true;
+    resultArea.textContent = "더 이상 프로그램을 실행할 수 없습니다.";
   }
 }
 
 // 초기화
 function reset() {
   // user input창, 결과 초기화
-  userInput.value = "";
+  chances = 3;
   resultArea.textContent = "정답을 입력해주세요.";
+  chancesArea.textContent = `남은 기회: ${chances}번`;
+  userInput.value = "";
+  history = [];
+  gameOver = false;
+  playButton.disabled = false;
 
   // 새로운 번호가 생성
   pickRandomNum();
