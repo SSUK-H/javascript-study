@@ -44,7 +44,7 @@ function play() {
 
   // 유효성 검사
   // 1~100 사이 숫자가 아닌 경우
-  if (userValue < 1 || userValue > 100) {
+  if (isNaN(userValue) || userValue < 1 || userValue > 100) {
     resultArea.textContent = "1과 100사이 숫자를 입력해주세요.";
     return;
   }
