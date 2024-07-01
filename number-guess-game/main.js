@@ -25,6 +25,11 @@ playButton.addEventListener("click", play);
 // 다시하기 버튼 클릭 시 게임 초기화
 resetButton.addEventListener("click", reset);
 
+// 재입력시 기존값 초기화
+userInput.addEventListener("focus", function () {
+  userInput.value = "";
+});
+
 // 랜덤번호
 function pickRandomNum() {
   computerNum = Math.floor(Math.random() * 100) + 1;
@@ -64,6 +69,7 @@ function play() {
   } else {
     console.log("맞췄습니다!");
     resultArea.textContent = "맞췄습니다!";
+    gameOver = true; // 게임 종료
   }
 
   // 입력한 값 저장
