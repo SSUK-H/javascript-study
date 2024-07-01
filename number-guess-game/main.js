@@ -17,6 +17,7 @@ const resetButton = document.getElementById("reset-button"); // 다시하기 버
 const chancesArea = document.getElementById("chances-area"); // 기회
 let chances = 5; // 기회 총 3번
 let gameOver = false; // 게임 종료 여부
+const history = [];
 
 // 정답 버튼 클릭 시 게임 진행
 playButton.addEventListener("click", play);
@@ -36,6 +37,19 @@ function play() {
   const userValue = userInput.value; // 입력값
   console.log("입력한 값: ", userValue);
 
+  // 유효성 검사
+  // 1~100 사이 숫자가 아닌 경우
+  if (userValue < 1 || userValue > 100) {
+    resultArea.textContent = "1과 100사이 숫자를 입력해주세요.";
+    return;
+  }
+
+  // 이미 입력한 숫자인 경우
+  if (history.includes(userValue)) {
+    resultArea.textContent = "이미 입력한 숫자입니다.";
+    return;
+  }
+
   chances--; // 기회가 1씩 줄어듬
   chancesArea.textContent = `남은 기회: ${chances}번`;
   console.log("남은 기회: ", chances);
@@ -51,6 +65,10 @@ function play() {
     console.log("맞췄습니다!");
     resultArea.textContent = "맞췄습니다!";
   }
+
+  // 입력한 값 저장
+  history.push(userValue);
+  console.log("history", history);
 
   // 기회가 끝났을 때 게임 종료
   if (chances < 1) {
