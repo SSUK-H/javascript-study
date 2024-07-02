@@ -81,6 +81,7 @@ function play() {
   } else {
     console.log("맞췄습니다!");
     resultArea.textContent = "맞췄습니다!";
+    userInput.placeholder = "";
     gameOver = true; // 게임 종료
   }
 
