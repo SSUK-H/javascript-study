@@ -87,11 +87,16 @@ function play() {
   // 기회가 끝났을 때 게임 종료
   if (chances < 1) {
     gameOver = true;
+
+    // 마지막 기회에도 못 맞췄을 때
+    if (userValue !== computerNum) {
+      resultArea.textContent = "더 이상 프로그램을 실행할 수 없습니다.";
+      userInput.placeholder = "";
+    }
   }
 
   if (gameOver == true) {
     playButton.disabled = true;
-    resultArea.textContent = "더 이상 프로그램을 실행할 수 없습니다.";
   }
 }
 
@@ -101,6 +106,7 @@ function reset() {
   chances = 3;
   resultArea.textContent = "정답을 입력해주세요.";
   chancesArea.textContent = `남은 기회: ${chances}번`;
+  userInput.placeholder = "1과 100사이의 유효한 숫자를 입력해주세요.";
   userInput.value = "";
   history = [];
   gameOver = false;
