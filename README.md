@@ -17,7 +17,7 @@
 
   ### 1-6. 개발 환경 설정
 
-  ### 1-7. 숫자 맞추기 게임
+  ### 1-7. [숫자 맞추기 게임](https://ssuk-number-guess-game.netlify.app/)
     숫자 맞추기 게임은 임의로 생성된 숫자를 정해진 횟수 내에 맞추는 게임.
     
   #### 💡 구현할 기능
@@ -39,4 +39,10 @@
   - [x] 유저가 1~100범위 밖에 숫자를 입력할시에 경고메세지가 뜬다.
   - [x] 유저가 이미 입력한 값을 또 입력할 시에 경고메세지가 뜬다.
   - [x] 반응형 UI
+  
+  #### 📺 최종결과
+  
+  <a href="https://ssuk-number-guess-game.netlify.app/" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/2cc1f133-649f-46af-9425-7b28872e6a64" alt="숫자 맞추기 게임" width="500px"/></a>
+
+  
   
