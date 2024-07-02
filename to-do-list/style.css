@@ -1,0 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  gap: 2em;
+  flex-direction: column;
+  padding: 1em;
+  border: 1px solid black;
+  min-height: 100vh;
+}
+
+header {
+  border-bottom: 1px solid black;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+
+form {
+  display: flex;
+  gap: 10px;
+}
+
+#task-input {
+  flex: 2;
+  padding: 6px 10px;
+}
+
+#submit-button {
+  width: 40px;
+  font-size: 24px;
+}
+
+.task-tabs {
+  display: flex;
+}
+
+.task-tabs li {
+  padding: 1em;
+}
+.task-tabs li.action {
+  border-bottom: 3px solid sandybrown;
+}
+
+#task-board {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-content {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+}
+
+.task-content p {
+  margin: 0;
+}
