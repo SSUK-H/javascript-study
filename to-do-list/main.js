@@ -12,9 +12,10 @@ const checkButton = document.getElementById("#check-button");
 let taskList = [];
 
 // 할일 입력
-taskForm.addEventListener("submit", handleSubmit);
+taskForm.addEventListener("submit", addTask);
 
-function handleSubmit(e) {
+// 작업 추가하기
+function addTask(e) {
   e.preventDefault();
 
   // 입력한 할일 저장
