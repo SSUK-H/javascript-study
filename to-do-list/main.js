@@ -47,7 +47,7 @@ function render() {
           </button>
          <p class="task-done">${taskList[i].taskContent}</p>
         </div>
-        <button id="delete-button" type="button"><i class="fa-regular fa-trash-can"></i></button>
+        <button id="delete-button" type="button" onclick="deleteTask('${taskList[i].id}')"><i class="fa-regular fa-trash-can"></i></button>
       </div>
     `;
     } else {
@@ -59,7 +59,7 @@ function render() {
           </button>
          <p>${taskList[i].taskContent}</p>
         </div>
-        <button id="delete-button" type="button"><i class="fa-regular fa-trash-can"></i></button>
+        <button id="delete-button" type="button" onclick="deleteTask('${taskList[i].id}')"><i class="fa-regular fa-trash-can"></i></button>
       </div>
     `;
     }
@@ -76,6 +76,22 @@ function toggleComplete(id) {
   if (task) {
     task.isComplete = !task.isComplete;
   }
+  console.log("click: ", id, taskList);
+
+  render(); // UI에 반영
+}
+
+// 삭제하기
+function deleteTask(id) {
+  // 선택한 아이디인 배열 인덱스 찾기
+  const taskIndex = taskList.findIndex((task) => task.id === id);
+  console.log(taskIndex);
+
+  // 해당 아이디가 포함된 배열 요소를 삭제
+  if (taskIndex !== -1) {
+    taskList.splice(taskIndex, 1);
+  }
+
   console.log("click: ", id, taskList);
 
   render(); // UI에 반영

@@ -139,6 +139,10 @@ section {
   font-size: 20px;
   opacity: 0.2;
 }
+.task button:hover {
+  opacity: 1;
+  color: #9061d2;
+}
 
 #check-button.checked {
   opacity: 1;
