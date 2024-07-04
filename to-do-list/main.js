@@ -52,7 +52,7 @@ function addTask(e) {
   taskList.push(task);
   console.log("작업 추가:", taskList);
 
-  render(); // 할일 목록에 추가
+  filterTask(); // 데이터 필터링, UI에 반영
 
   taskInput.value = ""; // 저장 후 초기화
 }
@@ -106,7 +106,7 @@ function toggleComplete(id) {
   }
   console.log("click: ", id, taskList);
 
-  render(); // UI에 반영
+  filterTask(); // 데이터 필터링, UI에 반영
 }
 
 // 삭제하기
@@ -122,13 +122,15 @@ function deleteTask(id) {
 
   console.log("click: ", id, taskList);
 
-  render(); // UI에 반영
+  filterTask(); // 데이터 필터링, UI에 반영
 }
 
 // 할일 목록 필터링
 function filterTask(e) {
-  console.log("filter:", e.target); // 클릭한 tab 정보
-  mode = e.target.id;
+  if (e) {
+    console.log("filter:", e.target); // 클릭한 tab 정보
+    mode = e.target.id;
+  }
 
   // 작업 상태에 따라 작업 리스트 분리
   if (mode === "ongoing") {
