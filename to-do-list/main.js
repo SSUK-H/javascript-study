@@ -9,13 +9,29 @@
 const taskForm = document.getElementById("task-form");
 const taskInput = document.getElementById("task-input");
 const checkButton = document.getElementById("#check-button");
+const tabs = document.querySelectorAll(".task-tabs li");
 let taskList = [];
+let filterList = [];
+let mode = "all";
 
 // 페이지 로드 시 입력창 자동 포커스
 taskInput.focus();
 
 // 할일 입력
 taskForm.addEventListener("submit", addTask);
+
+// 진행 중 / 완료 할일 목록 필터링
+tabs.forEach((tab) => {
+  tab.addEventListener("click", function (e) {
+    // 선택된 탭 표시
+    tabs.forEach((tab) => {
+      tab.classList.remove("action"); // 모든 탭에서 action 클래스 제거
+    });
+    e.currentTarget.classList.add("action"); // 클릭한 탭에 action 클래스 추가
+
+    filterTask(e); // 할일 목록 필터링
+  });
+});
 
 // 작업 추가하기
 function addTask(e) {
@@ -34,7 +50,7 @@ function addTask(e) {
     isComplete: false,
   };
   taskList.push(task);
-  console.log(taskList);
+  console.log("작업 추가:", taskList);
 
   render(); // 할일 목록에 추가
 
@@ -44,31 +60,34 @@ function addTask(e) {
 // 할일 목록에 나타내기
 function render() {
   const taskBoard = document.getElementById("task-board");
+  // 작업 상태 분류에 따라 작업 데이터 분류
+  let list = mode === "all" ? taskList : filterList;
   let resultHTML = "";
 
-  for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].isComplete == true) {
+  // 작업 리스트 출력
+  for (let i = 0; i < list.length; i++) {
+    if (list[i].isComplete == true) {
       resultHTML += `
       <div class="task task-done">
         <div class="task-content">
           <button id="check-button" class="checked" type="button" onclick="toggleComplete('${taskList[i].id}')">
             <i class="fa-solid fa-check"></i>
           </button>
-         <p class="task-done">${taskList[i].taskContent}</p>
+         <p class="task-done">${list[i].taskContent}</p>
         </div>
-        <button id="delete-button" type="button" onclick="deleteTask('${taskList[i].id}')"><i class="fa-regular fa-trash-can"></i></button>
+        <button id="delete-button" type="button" onclick="deleteTask('${list[i].id}')"><i class="fa-regular fa-trash-can"></i></button>
       </div>
     `;
     } else {
       resultHTML += `
       <div class="task">
         <div class="task-content">
-          <button id="check-button" type="button" onclick="toggleComplete('${taskList[i].id}')">
+          <button id="check-button" type="button" onclick="toggleComplete('${list[i].id}')">
             <i class="fa-solid fa-check"></i>
           </button>
-         <p>${taskList[i].taskContent}</p>
+         <p>${list[i].taskContent}</p>
         </div>
-        <button id="delete-button" type="button" onclick="deleteTask('${taskList[i].id}')"><i class="fa-regular fa-trash-can"></i></button>
+        <button id="delete-button" type="button" onclick="deleteTask('${list[i].id}')"><i class="fa-regular fa-trash-can"></i></button>
       </div>
     `;
     }
@@ -104,6 +123,23 @@ function deleteTask(id) {
   console.log("click: ", id, taskList);
 
   render(); // UI에 반영
+}
+
+// 할일 목록 필터링
+function filterTask(e) {
+  console.log("filter:", e.target); // 클릭한 tab 정보
+  mode = e.target.id;
+
+  // 작업 상태에 따라 작업 리스트 분리
+  if (mode === "ongoing") {
+    filterList = taskList.filter((task) => !task.isComplete);
+    console.log("진행 중:", filterList);
+  } else if (mode === "done") {
+    filterList = taskList.filter((task) => task.isComplete);
+    console.log("완료:", filterList);
+  }
+
+  render();
 }
 
 // 교유 아이디 만들기
