@@ -11,12 +11,21 @@ const taskInput = document.getElementById("task-input");
 const checkButton = document.getElementById("#check-button");
 let taskList = [];
 
+// 페이지 로드 시 입력창 자동 포커스
+taskInput.focus();
+
 // 할일 입력
 taskForm.addEventListener("submit", addTask);
 
 // 작업 추가하기
 function addTask(e) {
   e.preventDefault();
+
+  // 입력값 없는 경우 알림
+  if (taskInput.value === "") {
+    alert("할 일을 입력해주세요.");
+    return;
+  }
 
   // 입력한 할일 저장
   const task = {
