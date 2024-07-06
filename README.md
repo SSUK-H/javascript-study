@@ -44,5 +44,29 @@
   
   <a href="https://ssuk-number-guess-game.netlify.app/" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/2cc1f133-649f-46af-9425-7b28872e6a64" alt="숫자 맞추기 게임" width="500px"/></a>
 
+  ### 2-2. [할일 앱 만들기](https://ssuk-to-do-list.netlify.app)
+    할일 목록을 간편하게 작성하는 앱.
+
+  #### 💡 구현할 기능
+
+  - [x] 유저는 할일을 추가할 수 있다.
+  - [x] 각 할일에 삭제와 체크버튼이 있다.
+  - [x] 모바일 버전에서도 확인할 수 있는 반응형 웹이다.
+
+  ### 2-3. 이어서 할일 앱 만들기
   
+  - [x] 삭제버튼을 클릭하면 할일이 리스트에서 삭제된다.
+  - [x] 체크버튼을 누르면 할일이 끝난것으로 간주하고 밑줄이간다.
+  - [x] 끝난 할일은 되돌리기 버튼을 클릭하면 다시 되돌릴 수 있다.
+
+  ### 2-4. 이어서 할일 앱 만들기
   
+  - [x] 페이지 로드 시 input 자동 포커스
+  - [x] input 입력값이 없는 경우 알림
+  - [x] 탭을 이용해 아이템들을 상태별로 나누어서 볼 수 있다.
+
+  
+  #### 📺 최종결과
+
+  <a href="https://ssuk-to-do-list.netlify.app" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/e9506135-59ae-4f5c-aa90-3b87f9750885" alt="할 일 목록" width="500px" /></a>
+
