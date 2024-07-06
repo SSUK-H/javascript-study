@@ -70,3 +70,7 @@
 
   <a href="https://ssuk-to-do-list.netlify.app" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/e9506135-59ae-4f5c-aa90-3b87f9750885" alt="할 일 목록" width="500px" /></a>
 
+  ### 2-5. 할일 앱 다시 만들어보기
+  
+  ### 2-6. [ES6 자바스크립트 최신 문법](https://gist.github.com/SSUK-H/1e660c50650ea1219f7519253ee738cc)
+  
