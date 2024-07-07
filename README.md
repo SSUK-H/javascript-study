@@ -73,4 +73,6 @@
   ### 2-5. 할일 앱 다시 만들어보기
   
   ### 2-6. [ES6 자바스크립트 최신 문법](https://gist.github.com/SSUK-H/1e660c50650ea1219f7519253ee738cc)
+
+  ### 2-7. [배열 함수](https://gist.github.com/SSUK-H/d81f0249f5b06e534b549fd36152c61c)
   
