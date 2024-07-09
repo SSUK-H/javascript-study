@@ -76,3 +76,10 @@
 
   ### 2-7. [배열 함수](https://gist.github.com/SSUK-H/d81f0249f5b06e534b549fd36152c61c)
   
+<br/>
+
+## ***[ WEEK2 ]***
+
+  ### 3-1. 뉴스 타임즈 만들기 - [API란?](https://www.notion.so/growing-ssuk/api-ae8128790f6241f78d8d5d813ebed10f)
+
+  ### 3-2. 뉴스 타임즈 만들기 - [자바스크립트 동작 원리](https://www.notion.so/growing-ssuk/0dd934fd23e74f3cad8680176cf6ea3f)
