@@ -21,7 +21,10 @@ const render = () => {
       <div class="row">
         <div class="col-lg-4">
           <img
-            src="${news.urlToImage}"
+            src="${
+              news.urlToImage ||
+              "https://resource.rentcafe.com/image/upload/q_auto,f_auto,c_limit,w_576,h_500/s3/2/50552/image%20not%20available(26).jpg"
+            }"
             alt="기사 사진"
           />
         </div>
