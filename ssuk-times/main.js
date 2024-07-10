@@ -27,7 +27,13 @@ const render = () => {
         </div>
         <div class="col-lg-8">
           <h2>${news.title}</h2>
-          <p>${news.description}</p>
+          <p>${
+            news.description == null || news.description == ""
+              ? "내용없음"
+              : news.description.length > 200
+              ? news.description.substr(0, 200) + "..."
+              : news.description
+          }</p>
           <span>${news.source.name} * ${news.publishedAt}</span>
         </div>
       </div>
