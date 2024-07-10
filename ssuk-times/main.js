@@ -1,5 +1,44 @@
 const API_KEY = `20d1a87375b944aabce0c52c8cc088db`;
-let news = [];
+let newsList = [];
+
+const getLatestNews = async () => {
+  // URL 인스턴스를 활용해서 api 주소를 만듬
+  const url = new URL(
+    // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
+    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&apiKey=${API_KEY}`
+  );
+  const response = await fetch(url);
+  const data = await response.json();
+  newsList = data.articles;
+  render();
+  console.log("response", news);
+};
+
+const render = () => {
+  const newsHTML = newsList
+    .map(
+      (news) => `
+      <div class="row">
+        <div class="col-lg-4">
+          <img
+            src="${news.urlToImage}"
+            alt="기사 사진"
+          />
+        </div>
+        <div class="col-lg-8">
+          <h2>${news.title}</h2>
+          <p>${news.description}</p>
+          <span>${news.source.name} * ${news.publishedAt}</span>
+        </div>
+      </div>
+    `
+    )
+    .join("");
+
+  document.getElementById("news-board").innerHTML = newsHTML;
+};
+
+getLatestNews();
 
 const openNav = () => {
   document.getElementById("menu").style.width = "250px";
@@ -22,17 +61,3 @@ const openSearch = () => {
     search.style.opacity = "0";
   }
 };
-
-const getLatestNews = async () => {
-  // URL 인스턴스를 활용해서 api 주소를 만듬
-  const url = new URL(
-    `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
-    // `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&apiKey=${API_KEY}`
-  );
-  const response = await fetch(url);
-  const data = await response.json();
-  news = data.articles;
-  console.log("response", news);
-};
-
-getLatestNews();
