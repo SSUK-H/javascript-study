@@ -11,7 +11,7 @@ const getLatestNews = async () => {
   const data = await response.json();
   newsList = data.articles;
   render();
-  console.log("response", news);
+  console.log("response", newsList);
 };
 
 const render = () => {
