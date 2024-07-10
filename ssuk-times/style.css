@@ -1,0 +1,179 @@
+@font-face {
+  font-family: "JeonjuCraftMjB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftMjB.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+body {
+  font-family: "JeonjuCraftMjB";
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  padding: 4em 0;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+.head-top {
+  width: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 4em;
+  font-weight: bold;
+}
+
+#search {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+#search-open-button i {
+  cursor: pointer;
+  font-size: 18px;
+}
+#search-form {
+  display: none;
+  opacity: 0;
+  gap: 1em;
+}
+#search-form input {
+  padding: 6px;
+  color: white;
+  outline: none;
+  border: 0;
+  font-size: 12px;
+  border-bottom: 1px solid black;
+}
+#search-form button {
+  width: 34px;
+  color: white;
+  font-size: 12px;
+  background-color: black;
+}
+
+#menu-button {
+  cursor: pointer;
+  font-size: 22px;
+  display: none;
+}
+
+#menu {
+  padding: 1em 0;
+  border-bottom: thick double black;
+}
+
+#menu ul {
+  display: flex;
+  gap: 0.8em;
+  justify-content: center;
+  font-size: 16px;
+  flex-wrap: wrap;
+}
+
+#menu ul li {
+  cursor: pointer;
+  border-bottom: 2px solid white;
+}
+#menu ul li:hover {
+  border-bottom: 2px solid black;
+}
+
+section {
+  margin-top: 2em;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  padding: 1em;
+  padding-bottom: 2em;
+  border-bottom: 1px solid black;
+}
+.row img {
+  max-width: 100%;
+  max-height: 250px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2em;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  .head-top {
+    justify-content: space-between;
+  }
+  #menu-button {
+    display: block;
+  }
+  #menu {
+    height: 100%;
+    width: 0;
+    position: fixed !important;
+    z-index: 1 !important;
+    top: 0 !important;
+    left: 0 !important;
+    background-color: black;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    margin-left: -250px;
+  }
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    font-size: 22px;
+    color: white;
+    cursor: pointer;
+  }
+  #menu ul {
+    flex-direction: column;
+    text-align: center;
+    gap: 0;
+  }
+  #menu ul li {
+    color: rgb(199, 199, 199);
+    padding: 10px 0;
+    border-color: rgb(38, 38, 38);
+  }
+  #menu ul li:hover {
+    color: white;
+    border-color: white;
+  }
+}
