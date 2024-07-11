@@ -27,7 +27,7 @@ const getLatestNews = async (category) => {
   // URL 인스턴스를 활용해서 api 주소를 만듬
   const url = new URL(
     // `https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`
-    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=${category}kr&category=&apiKey=${API_KEY}`
+    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`
   );
   const response = await fetch(url);
   const data = await response.json();
