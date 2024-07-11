@@ -1,5 +1,7 @@
 const API_KEY = `20d1a87375b944aabce0c52c8cc088db`;
 let newsList = [];
+const defaultImage =
+  "https://resource.rentcafe.com/image/upload/q_auto,f_auto,c_limit,w_576,h_500/s3/2/50552/image%20not%20available(26).jpg";
 
 const getLatestNews = async () => {
   // URL 인스턴스를 활용해서 api 주소를 만듬
@@ -19,16 +21,14 @@ const render = () => {
     .map(
       (news) => `
       <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 news-image">
           <img
-            src="${
-              news.urlToImage ||
-              "https://resource.rentcafe.com/image/upload/q_auto,f_auto,c_limit,w_576,h_500/s3/2/50552/image%20not%20available(26).jpg"
-            }"
-            alt="기사 사진"
+            src="${news.urlToImage || defaultImage}"
+            alt="${news.title}"
+            onerror="this.onerror=null; this.src='${defaultImage}';"
           />
         </div>
-        <div class="col-lg-8">
+        <div class="col-lg-8 news-textbox">
           <h2>${news.title}</h2>
           <p>${
             news.description == null || news.description == ""
@@ -52,14 +52,12 @@ const render = () => {
 getLatestNews();
 
 const openNav = () => {
-  // document.getElementById("menu").style.width = "250px";
   document.getElementById("menu").style.display = "block";
-  document.getElementById("menu").style.marginLeft = "0px";
+  document.getElementById("menu").style.left = "0px";
 };
 
 const closeNav = () => {
-  // document.getElementById("menu").style.width = "0";
-  document.getElementById("menu").style.marginLeft = "-250px";
+  document.getElementById("menu").style.left = "-250px";
 };
 
 const openSearch = () => {
