@@ -86,6 +86,7 @@ h1 {
 }
 
 #search-text {
+  display: none;
   text-align: center;
   padding: 1em;
 }
