@@ -51,7 +51,7 @@ header {
   cursor: pointer;
   font-size: 22px;
 }
-#search {
+#search-area {
   display: flex;
   align-items: center;
   gap: 1em;
@@ -67,7 +67,6 @@ header {
 }
 #search-form input {
   padding: 6px;
-  color: white;
   outline: none;
   border: 0;
   font-size: 12px;
