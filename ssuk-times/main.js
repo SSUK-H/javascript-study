@@ -3,31 +3,50 @@ const defaultImage =
   "https://resource.rentcafe.com/image/upload/q_auto,f_auto,c_limit,w_576,h_500/s3/2/50552/image%20not%20available(26).jpg";
 let newsList = [];
 let category = "";
+let keyword = "";
 
 const menus = document.querySelectorAll("#menu ul li");
+const searchForm = document.getElementById("search-form");
+const searchInput = document.getElementById("search-input");
+
+// 메뉴 클릭 시 카테고리별 검색
+menus.forEach((menu) => menu.addEventListener("click", categorySearch));
+
+// 검색창 검색
+searchForm.addEventListener("submit", keywordSearch);
 
 // 카테고리별 검색
-menus.forEach((menu) => {
-  menu.addEventListener("click", (e) => {
-    // 클릭한 카테고리 이름 가져오기
-    const textContent = e.target.textContent.toLowerCase();
-    console.log(e, textContent);
+function categorySearch(e) {
+  // 클릭한 카테고리 이름 가져오기
+  category = e.target.textContent.toLowerCase();
+  console.log(e, category);
 
-    // 클릭한 카테고리 표시
-    menus.forEach((menu) => (menu.style.borderColor = "white"));
-    e.target.style.borderColor = "black";
+  // 클릭한 카테고리 표시
+  menus.forEach((menu) => (menu.style.borderColor = "white"));
+  e.target.style.borderColor = "black";
 
-    // 클릭한 카테고리 데이터 요청 및 렌더
-    getLatestNews(textContent);
-  });
-});
+  // 클릭한 카테고리 데이터 요청 및 렌더
+  getLatestNews(category, keyword);
+
+  // searchInput.value = ""; // 초기화
+}
+
+// 키워드별 검색
+function keywordSearch(e) {
+  e.preventDefault();
+
+  keyword = searchInput.value;
+  getLatestNews(category, keyword);
+}
 
 // 뉴스 데이터 호출
-const getLatestNews = async (category) => {
+const getLatestNews = async (category, keyword) => {
+  console.log(category, keyword);
+
   // URL 인스턴스를 활용해서 api 주소를 만듬
   const url = new URL(
-    // `https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`
-    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`
+    // `https://newsapi.org/v2/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
+    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
   );
   const response = await fetch(url);
   const data = await response.json();
@@ -70,7 +89,7 @@ const render = () => {
   document.getElementById("news-board").innerHTML = newsHTML;
 };
 
-getLatestNews(category);
+getLatestNews(category, keyword);
 
 // 메뉴 열기
 const openNav = () => {
