@@ -1,13 +1,33 @@
 const API_KEY = `20d1a87375b944aabce0c52c8cc088db`;
-let newsList = [];
 const defaultImage =
   "https://resource.rentcafe.com/image/upload/q_auto,f_auto,c_limit,w_576,h_500/s3/2/50552/image%20not%20available(26).jpg";
+let newsList = [];
+let category = "";
 
-const getLatestNews = async () => {
+const menus = document.querySelectorAll("#menu ul li");
+
+// 카테고리별 검색
+menus.forEach((menu) => {
+  menu.addEventListener("click", (e) => {
+    // 클릭한 카테고리 이름 가져오기
+    const textContent = e.target.textContent.toLowerCase();
+    console.log(e, textContent);
+
+    // 클릭한 카테고리 표시
+    menus.forEach((menu) => (menu.style.borderColor = "white"));
+    e.target.style.borderColor = "black";
+
+    // 클릭한 카테고리 데이터 요청 및 렌더
+    getLatestNews(textContent);
+  });
+});
+
+// 뉴스 데이터 호출
+const getLatestNews = async (category) => {
   // URL 인스턴스를 활용해서 api 주소를 만듬
   const url = new URL(
-    // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}`
-    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&apiKey=${API_KEY}`
+    // `https://newsapi.org/v2/top-headlines?country=kr&category=${category}&apiKey=${API_KEY}`
+    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=${category}kr&category=&apiKey=${API_KEY}`
   );
   const response = await fetch(url);
   const data = await response.json();
@@ -16,6 +36,7 @@ const getLatestNews = async () => {
   console.log("response", newsList);
 };
 
+// 뉴스 리스트 랜더
 const render = () => {
   const newsHTML = newsList
     .map(
@@ -49,17 +70,20 @@ const render = () => {
   document.getElementById("news-board").innerHTML = newsHTML;
 };
 
-getLatestNews();
+getLatestNews(category);
 
+// 메뉴 열기
 const openNav = () => {
   document.getElementById("menu").style.display = "block";
   document.getElementById("menu").style.left = "0px";
 };
 
+// 메뉴 닫기
 const closeNav = () => {
   document.getElementById("menu").style.left = "-250px";
 };
 
+// 검색창 열기
 const openSearch = () => {
   const search = document.getElementById("search-form");
 
