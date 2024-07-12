@@ -181,6 +181,11 @@ const paginationRender = () => {
 
   // 페이지 버튼 생성
   let paginationHTML = `
+    <li class="page-item first-page-button" onclick="moveToPage(1)">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&lt;&lt;</span>
+       </a>
+    </li>
     <li class="page-item prev-button" onclick="moveToPage(${page - 1})">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&lt;</span>
@@ -200,6 +205,11 @@ const paginationRender = () => {
     <li class="page-item next-button" onclick="moveToPage(${page + 1})">
       <a class="page-link" href="#" aria-label="Next">
         <span aria-hidden="true">&gt;</span>
+      </a>
+    </li>
+    <li class="page-item last-page-button" onclick="moveToPage(${totalPages})">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&gt;&gt;</span>
       </a>
     </li>
   `;
