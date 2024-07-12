@@ -83,6 +83,7 @@ h1 {
   text-align: center;
   font-size: 3rem;
   font-weight: bold;
+  cursor: pointer;
 }
 
 #search-text {
@@ -161,6 +162,11 @@ section {
 .news-textbox span {
   font-size: 0.9rem;
   color: rgb(79, 79, 79);
+}
+
+#error {
+  width: 100%;
+  text-align: center;
 }
 
 /* 모바일 */

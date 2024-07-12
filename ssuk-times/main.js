@@ -74,18 +74,34 @@ function keywordSearch(e) {
 
 // 뉴스 데이터 호출
 const getLatestNews = async (category, keyword) => {
-  console.log(category, keyword);
+  try {
+    console.log(category, keyword);
 
-  // URL 인스턴스를 활용해서 api 주소를 만듬
-  const url = new URL(
-    // `https://newsapi.org/v2/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
-    `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
-  );
-  const response = await fetch(url);
-  const data = await response.json();
-  newsList = data.articles;
-  render();
-  console.log("response", newsList);
+    // URL 인스턴스를 활용해서 api 주소를 만듬
+    const url = new URL(
+      // `https://newsapi.org/v2/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
+      `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
+    );
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data);
+
+    // api 호출이 성공일 경우 랜더, 아닐 경우 에러 메세지 노출
+    if (response.status === 200) {
+      // api 호출은 잘 됐지만, 뉴스 데이터가 없을 경우 에러 메세지 노출
+      if (!data.articles.length > 0) {
+        throw new Error("No matches for your search");
+      } else {
+        newsList = data.articles;
+        render();
+      }
+    } else {
+      throw new Error(data.message);
+    }
+  } catch (error) {
+    console.log(error.message);
+    errorRender(error.message);
+  }
 };
 
 // 뉴스 리스트 랜더
@@ -122,6 +138,16 @@ const render = () => {
   document.getElementById("news-board").innerHTML = newsHTML;
 };
 
+// 에러 메세지 렌더
+const errorRender = (errorMessage) => {
+  const errorHTML = `
+      <div id="error" class="alert alert-danger" role="alert">
+        ${errorMessage}
+      </div>
+  `;
+
+  document.getElementById("news-board").innerHTML = errorHTML;
+};
 getLatestNews(category, keyword);
 
 // 메뉴 열기
