@@ -5,6 +5,11 @@ let newsList = [];
 let category = "";
 let keyword = "";
 
+let totalResults = 0;
+let page = 1;
+const pageSize = 10;
+const groupSize = 5;
+
 const menus = document.querySelectorAll("#menu ul li");
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
@@ -12,10 +17,12 @@ const searchText = document.getElementById("search-text");
 const title = document.getElementById("title");
 
 // 메뉴 클릭 시 카테고리별 검색
-menus.forEach((menu) => menu.addEventListener("click", categorySearch));
+menus.forEach((menu) =>
+  menu.addEventListener("click", (e) => categorySearch(e))
+);
 
 // 검색창 검색
-searchForm.addEventListener("submit", keywordSearch);
+searchForm.addEventListener("submit", (e) => keywordSearch(e));
 
 // 검색창 초기화
 searchInput.addEventListener("focus", function () {
@@ -37,6 +44,7 @@ title.addEventListener("click", function () {
 
   category = "";
   keyword = "";
+  page = 1;
   getLatestNews(category, keyword);
 });
 
@@ -52,9 +60,10 @@ function categorySearch(e) {
 
   // 전체일 경우 ""로 대체
   if (category === "all") category = "";
+  page = 1;
 
   // 클릭한 카테고리 데이터 요청 및 렌더
-  getLatestNews(category, keyword);
+  getLatestNews(category, keyword, page);
 
   // searchInput.value = ""; // 초기화
 }
@@ -64,8 +73,9 @@ function keywordSearch(e) {
   e.preventDefault();
   category = "";
   keyword = searchInput.value;
+  page = 1;
 
-  getLatestNews(category, keyword);
+  getLatestNews(category, keyword, page);
 
   // 검색 결과 내용
   searchText.style.display = "black";
@@ -73,16 +83,20 @@ function keywordSearch(e) {
 }
 
 // 뉴스 데이터 호출
-const getLatestNews = async (category, keyword) => {
+const getLatestNews = async (category, keyword, page) => {
   try {
-    console.log(category, keyword);
+    console.log(category, keyword, page);
 
     // URL 인스턴스를 활용해서 api 주소를 만듬
     const url = new URL(
-      // `https://newsapi.org/v2/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
-      `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?q=${keyword}&country=kr&category=${category}&apiKey=${API_KEY}`
+      // `https://newsapi.org/v2/top-headlines?country=kr&apiKey=${API_KEY}&category=${category}&q=${keyword}`
+      `https://noona-times-be-5ca9402f90d9.herokuapp.com/top-headlines?country=kr&apiKey=${API_KEY}&category=${category}&q=${keyword}`
     );
+    url.searchParams.set("page", page); // url에 &page=page
+    url.searchParams.set("pageSize", pageSize); // url에 &pageSize=pageSize
+
     const response = await fetch(url);
+
     const data = await response.json();
     console.log(data);
 
@@ -93,7 +107,9 @@ const getLatestNews = async (category, keyword) => {
         throw new Error("No matches for your search");
       } else {
         newsList = data.articles;
+        totalResults = data.totalResults;
         render();
+        paginationRender();
       }
     } else {
       throw new Error(data.message);
@@ -148,7 +164,42 @@ const errorRender = (errorMessage) => {
 
   document.getElementById("news-board").innerHTML = errorHTML;
 };
-getLatestNews(category, keyword);
+
+// 페이지네이션
+const paginationRender = () => {
+  const totalPages = Math.ceil(totalResults / pageSize);
+  const pageGroup = Math.ceil(page / groupSize);
+
+  let lastPage = pageGroup * groupSize;
+  // 마지막 페이지가 그룹사이즈(5) 보다 작을 경우에는 5까지 보여줄 필요가 없음
+  if (lastPage > totalPages) lastPage = totalPages;
+
+  // 그룹 사이즈 보다 작은 경우 1부터 시작하도록 함
+  // 만약 마지막 페이지가 4개일 경우는 그룹 사이즈를 채우기 위해 0,1,2,3,4 표시됨
+  const firstPage =
+    lastPage - (groupSize - 1) <= 0 ? 1 : lastPage - (groupSize - 1);
+
+  // 페이지 버튼 생성
+  let paginationHTML = ``;
+
+  for (let i = firstPage; i <= lastPage; i++) {
+    paginationHTML += `
+      <li class="page-item ${
+        i === page ? "active" : ""
+      }" onclick="moveToPage(${i})"><a class="page-link">${i}</a></li>
+    `;
+  }
+
+  document.querySelector(".pagination").innerHTML = paginationHTML;
+};
+
+const moveToPage = (pageNumber) => {
+  console.log("moveToPage", pageNumber);
+  page = pageNumber;
+  getLatestNews(category, keyword, page);
+};
+
+getLatestNews(category, keyword, page);
 
 // 메뉴 열기
 const openNav = () => {

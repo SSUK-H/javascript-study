@@ -169,6 +169,25 @@ section {
   text-align: center;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+.page-item a {
+  cursor: pointer;
+  color: #838383;
+}
+.page-item a:hover {
+  color: black;
+}
+
+.page-item.active a {
+  color: white;
+  border-color: black;
+  background-color: black;
+}
+
 /* 모바일 */
 @media (max-width: 991px) {
   .head-top {
