@@ -180,18 +180,23 @@ const paginationRender = () => {
     lastPage - (groupSize - 1) <= 0 ? 1 : lastPage - (groupSize - 1);
 
   // 페이지 버튼 생성
-  let paginationHTML = `
+  let paginationHTML = ``;
+
+  // 첫번째 페이지인 경우 보이지 않기
+  if (page > 1) {
+    paginationHTML += `
     <li class="page-item first-page-button" onclick="moveToPage(1)">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" aria-label="Previous">
         <span aria-hidden="true">&lt;&lt;</span>
        </a>
     </li>
     <li class="page-item prev-button" onclick="moveToPage(${page - 1})">
-      <a class="page-link" href="#" aria-label="Previous">
+      <a class="page-link" aria-label="Previous">
         <span aria-hidden="true">&lt;</span>
       </a>
     </li>
   `;
+  }
 
   for (let i = firstPage; i <= lastPage; i++) {
     paginationHTML += `
@@ -201,18 +206,21 @@ const paginationRender = () => {
     `;
   }
 
-  paginationHTML += `
+  // 마지막 페이지인 경우 보이지 않기
+  if (page < totalPages) {
+    paginationHTML += `
     <li class="page-item next-button" onclick="moveToPage(${page + 1})">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" aria-label="Next">
         <span aria-hidden="true">&gt;</span>
       </a>
     </li>
     <li class="page-item last-page-button" onclick="moveToPage(${totalPages})">
-      <a class="page-link" href="#" aria-label="Next">
+      <a class="page-link" aria-label="Next">
         <span aria-hidden="true">&gt;&gt;</span>
       </a>
     </li>
   `;
+  }
 
   document.querySelector(".pagination").innerHTML = paginationHTML;
 };
