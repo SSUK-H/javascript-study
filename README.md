@@ -80,7 +80,7 @@
 
 ## ***[ WEEK3 ]***
 
-  ### 3-1. 뉴스 타임즈 만들기 - [API란?](https://www.notion.so/growing-ssuk/api-ae8128790f6241f78d8d5d813ebed10f)
+  ### 3-1. [뉴스 타임즈 만들기](https://ssuk-times.netlify.app) - [API란?](https://www.notion.so/growing-ssuk/api-ae8128790f6241f78d8d5d813ebed10f)
 
   #### 💡 주요기능
 
@@ -127,6 +127,9 @@
   - [x] << >> 버튼을 통해 제일 처음과 제일 끝 페이지로 이동할 수 있다.
   - [x] 첫 페이지 그룹에 있으면 (1~5) << < 버튼은 사라진다.
   - [x] 제일 끝 페이지 그룹에 있으면 > >> 버튼은 사라진다.
+  
+  #### 📺 최종결과
 
+  <a href="https://ssuk-times.netlify.app/" target="_parent"><img src="https://github.com/user-attachments/assets/fd7c4e97-2f9e-419b-a3c7-04ca47f3e49f" alt="성숙 타임즈 결과화면" width="500px" /></a>
 
   
