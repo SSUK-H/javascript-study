@@ -78,7 +78,7 @@
   
 <br/>
 
-## ***[ WEEK3 ]***
+## ***[ WEEK2 ]***
 
   ### 3-1. 뉴스 타임즈 만들기 - [API란?](https://www.notion.so/growing-ssuk/api-ae8128790f6241f78d8d5d813ebed10f)
 
