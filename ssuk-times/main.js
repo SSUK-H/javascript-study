@@ -37,7 +37,7 @@ const render = () => {
               ? news.description.substr(0, 200) + "..."
               : news.description
           }</p>
-          <span>${news.source.name || "no source"} * ${news.publishedAt}</span>
+          <span>${news.source.name} * ${news.publishedAt}</span>
         </div>
       </div>
     `
