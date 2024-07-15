@@ -117,7 +117,8 @@ section {
   display: flex;
   flex-direction: row;
   gap: 1em;
-  padding: 2em;
+  padding: 1em;
+  padding-bottom: 2em;
   border-bottom: 1px solid black;
 }
 .row img {
