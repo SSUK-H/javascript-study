@@ -1,0 +1,266 @@
+@font-face {
+  font-family: "JeonjuCraftMjB";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftMjB.woff2")
+    format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ol,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background-color: white;
+}
+
+body {
+  font-family: "JeonjuCraftMjB";
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.container {
+  padding: 1em;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.head-top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+#menu-button {
+  cursor: pointer;
+  font-size: 22px;
+}
+#search-area {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+#search-open-button i {
+  cursor: pointer;
+  font-size: 18px;
+}
+#search-form {
+  display: none;
+  opacity: 0;
+  gap: 1em;
+}
+#search-form input {
+  padding: 6px;
+  outline: none;
+  border: 0;
+  font-size: 12px;
+  border-bottom: 1px solid black;
+}
+#search-form button {
+  width: 34px;
+  color: white;
+  font-size: 12px;
+  background-color: black;
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#search-text {
+  display: none;
+  text-align: center;
+  padding: 1em;
+}
+
+#menu {
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  transition: left 0.5s;
+}
+#menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+#menu ul li {
+  cursor: pointer;
+  text-align: center;
+  color: rgb(199, 199, 199);
+  border-bottom: 2px solid rgb(38, 38, 38);
+}
+#menu ul li:first-child {
+  border-bottom: 2px solid white;
+}
+.close-button {
+  text-align: right;
+  font-size: 22px;
+  color: white;
+  cursor: pointer;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  width: 100%;
+  display: flex;
+  padding: 2em;
+  border-bottom: 1px solid black;
+}
+.news-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+.news-image img {
+  max-width: 100%;
+  max-height: 250px;
+}
+
+.news-textbox {
+  display: flex;
+  flex-direction: column;
+}
+.news-textbox h2 {
+  font-size: 1.6rem;
+}
+.news-textbox p {
+  flex-grow: 1;
+  color: rgb(79, 79, 79);
+  font-weight: 300 !important;
+}
+.news-textbox span {
+  font-size: 0.9rem;
+  color: rgb(79, 79, 79);
+}
+
+#error {
+  width: 100%;
+  text-align: center;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 2em 0;
+}
+.page-item a {
+  cursor: pointer;
+  color: #838383;
+}
+.page-item a:hover {
+  color: black;
+}
+
+.page-item.active a {
+  color: white;
+  border-color: black;
+  background-color: black;
+}
+
+/* 모바일 */
+@media (max-width: 991px) {
+  .head-top {
+    justify-content: space-between;
+  }
+
+  #menu {
+    display: none;
+    left: -250px;
+    padding: 6px 10px;
+    background-color: black;
+  }
+  #menu ul li {
+    padding: 10px 0;
+  }
+  #menu ul li:hover {
+    color: white;
+    border-bottom: 2px solid white;
+  }
+  .row {
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+
+/* 데스트 톱 */
+@media (min-width: 992px) {
+  .container {
+    padding: 2em 0;
+  }
+
+  h1 {
+    cursor: pointer;
+    font-size: 4em;
+  }
+
+  .head-top {
+    justify-content: right;
+  }
+  #menu {
+    position: static;
+    width: auto;
+    height: auto;
+  }
+  #menu ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    padding: 1em;
+    border-top: 1px solid black;
+    border-bottom: thick double black;
+  }
+  #menu ul li {
+    text-align: center;
+    color: black;
+    border-color: white;
+  }
+  #menu ul li:first-child {
+    border-bottom: 2px solid black;
+  }
+  #menu li:hover {
+    border-bottom: 2px solid black;
+  }
+  #menu-button,
+  .close-button {
+    display: none;
+  }
+
+  section {
+    margin-top: 2em;
+  }
+  .row {
+    flex-direction: row;
+  }
+}
