@@ -85,11 +85,6 @@ h1 {
   font-weight: bold;
 }
 
-#search-text {
-  text-align: center;
-  padding: 1em;
-}
-
 #menu {
   width: 250px;
   height: 100%;
@@ -110,9 +105,6 @@ h1 {
   text-align: center;
   color: rgb(199, 199, 199);
   border-bottom: 2px solid rgb(38, 38, 38);
-}
-#menu ul li:first-child {
-  border-bottom: 2px solid white;
 }
 .close-button {
   text-align: right;
@@ -194,7 +186,6 @@ section {
   }
 
   h1 {
-    cursor: pointer;
     font-size: 4em;
   }
 
@@ -219,9 +210,6 @@ section {
     text-align: center;
     color: black;
     border-color: white;
-  }
-  #menu ul li:first-child {
-    border-bottom: 2px solid black;
   }
   #menu li:hover {
     border-bottom: 2px solid black;

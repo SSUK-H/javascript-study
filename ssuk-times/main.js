@@ -8,8 +8,6 @@ let keyword = "";
 const menus = document.querySelectorAll("#menu ul li");
 const searchForm = document.getElementById("search-form");
 const searchInput = document.getElementById("search-input");
-const searchText = document.getElementById("search-text");
-const title = document.getElementById("title");
 
 // 메뉴 클릭 시 카테고리별 검색
 menus.forEach((menu) => menu.addEventListener("click", categorySearch));
@@ -17,41 +15,15 @@ menus.forEach((menu) => menu.addEventListener("click", categorySearch));
 // 검색창 검색
 searchForm.addEventListener("submit", keywordSearch);
 
-// 검색창 초기화
-searchInput.addEventListener("focus", function () {
-  searchInput.value = "";
-});
-
-// 로고 클릭 시 초기화
-title.addEventListener("click", function () {
-  // all로 클릭 표시
-  menus.forEach((menu) => (menu.style.borderColor = "white"));
-  menus[0].style.borderColor = "black";
-
-  // 검색 결과 내용 안보이기
-  searchText.style.display = "none";
-
-  // 검색창, 검색 내용 초기화
-  searchForm.style.display = "none";
-  searchInput.value = "";
-
-  category = "";
-  keyword = "";
-  getLatestNews(category, keyword);
-});
-
 // 카테고리별 검색
 function categorySearch(e) {
-  // 클릭한 카테고리 표시
-  menus.forEach((menu) => (menu.style.borderColor = "white"));
-  e.target.style.borderColor = "black";
-
   // 클릭한 카테고리 이름 가져오기
   category = e.target.textContent.toLowerCase();
   console.log(e, category);
 
-  // 전체일 경우 ""로 대체
-  if (category === "all") category = "";
+  // 클릭한 카테고리 표시
+  menus.forEach((menu) => (menu.style.borderColor = "white"));
+  e.target.style.borderColor = "black";
 
   // 클릭한 카테고리 데이터 요청 및 렌더
   getLatestNews(category, keyword);
@@ -62,14 +34,9 @@ function categorySearch(e) {
 // 키워드별 검색
 function keywordSearch(e) {
   e.preventDefault();
-  category = "";
+
   keyword = searchInput.value;
-
   getLatestNews(category, keyword);
-
-  // 검색 결과 내용
-  searchText.style.display = "black";
-  searchText.textContent = `"${keyword}"에 대해 검색한 결과입니다.`;
 }
 
 // 뉴스 데이터 호출
