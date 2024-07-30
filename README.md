@@ -17,7 +17,7 @@
 
   ### 1-6. 개발 환경 설정
 
-  ### 1-7. [숫자 맞추기 게임](https://ssuk-number-guess-game.netlify.app/)
+  ### 1-7. 숫자 맞추기 게임
     숫자 맞추기 게임은 임의로 생성된 숫자를 정해진 횟수 내에 맞추는 게임.
     
   #### 💡 구현할 기능
@@ -41,10 +41,13 @@
   - [x] 반응형 UI
   
   #### 📺 최종결과
+  <a href="https://ssuk-number-guess-game.netlify.app/" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/2cc1f133-649f-46af-9425-7b28872e6a64" alt="숫자 맞추기 게임" width="500px"/></a> 
   
-  <a href="https://ssuk-number-guess-game.netlify.app/" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/2cc1f133-649f-46af-9425-7b28872e6a64" alt="숫자 맞추기 게임" width="500px"/></a>
-
-  ### 2-2. [할일 앱 만들기](https://ssuk-to-do-list.netlify.app)
+  #### ➡️ ➡️ ➡️  [🎮 숫자 맞추기 게임 바로가기 🎮](https://ssuk-number-guess-game.netlify.app/)
+  
+<br/>
+ 
+  ### 2-2. 할일 앱 만들기
     할일 목록을 간편하게 작성하는 앱.
 
   #### 💡 구현할 기능
@@ -69,6 +72,10 @@
   #### 📺 최종결과
 
   <a href="https://ssuk-to-do-list.netlify.app" target="_parent"><img src="https://github.com/SSUK-H/codingnoona-javascript-study/assets/134491629/e9506135-59ae-4f5c-aa90-3b87f9750885" alt="할 일 목록" width="500px" /></a>
+  
+  #### ➡️ ➡️ ➡️  [✅ 오늘의 할 일 작성하러 가기 ✅](https://ssuk-to-do-list.netlify.app)
+
+  <br/>
 
   ### 2-5. 할일 앱 다시 만들어보기
   
@@ -80,7 +87,7 @@
 
 ## ***[ WEEK3 ]***
 
-  ### 3-1. [뉴스 타임즈 만들기](https://ssuk-times.netlify.app) - [API란?](https://www.notion.so/growing-ssuk/api-ae8128790f6241f78d8d5d813ebed10f)
+  ### 3-1. 뉴스 타임즈 만들기 - [API란?](https://www.notion.so/growing-ssuk/api-ae8128790f6241f78d8d5d813ebed10f)
 
   #### 💡 주요기능
 
@@ -132,4 +139,5 @@
 
   <a href="https://ssuk-times.netlify.app/" target="_parent"><img src="https://github.com/user-attachments/assets/fd7c4e97-2f9e-419b-a3c7-04ca47f3e49f" alt="성숙 타임즈 결과화면" width="500px" /></a>
 
+  #### ➡️ ➡️ ➡️ [📰 뉴스 확인하기 📰](https://ssuk-times.netlify.app)
   
