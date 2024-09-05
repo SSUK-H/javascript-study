@@ -92,7 +92,9 @@ function play() {
     // 마지막 기회에도 못 맞췄을 때
     if (userValue !== computerNum) {
       resultArea.textContent = "더 이상 프로그램을 실행할 수 없습니다.";
-      userInput.placeholder = "";
+      userInput.value = "";
+      userInput.placeholder = "Error";
+      userInput.disabled = true;
     }
   }
 
