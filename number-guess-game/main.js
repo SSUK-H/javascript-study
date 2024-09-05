@@ -15,7 +15,7 @@ const userInput = document.getElementById("user-input"); // 입력창
 const resultArea = document.getElementById("result-area"); // 정답
 const resetButton = document.getElementById("reset-button"); // 다시하기 버튼
 const chancesArea = document.getElementById("chances-area"); // 기회
-let chances = 3; // 기회 총 3번
+let chances = 5; // 기회 총 3번
 let gameOver = false; // 게임 종료 여부
 let history = [];
 
@@ -66,14 +66,14 @@ function play() {
   // 입력 값에 따라 결과 출력
   if (userValue < computerNum) {
     console.log("Up!!");
-    resultArea.textContent = `힌트: Up!! (정답: ${computerNum})`;
+    resultArea.textContent = `힌트: Up!!`;
     userInput.placeholder =
       "숫자 " +
       history.join(", ") +
       "을(를) 제외한 1과 100사이의 유효한 숫자를 입력해주세요.";
   } else if (userValue > computerNum) {
     console.log("Down!!");
-    resultArea.textContent = `힌트: Down!! (정답: ${computerNum})`;
+    resultArea.textContent = `힌트: Down!!`;
     userInput.placeholder =
       "숫자 " +
       history.join(", ") +
